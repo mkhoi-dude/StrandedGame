@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/resources/nokiaTheme.tres" type="Theme" id=1]
+[ext_resource path="res://src/other/menu/Menu.gd" type="Script" id=2]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameTitle" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -31.5
+margin_right = 31.5
+margin_bottom = 14.0
+text = "STRANDED"
+align = 1
+valign = 1
+
+[node name="Stuff" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -42.0
+margin_top = -34.0
+margin_right = 42.0
+margin_bottom = 27.0
+text = "E - play
+Esc - quit"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

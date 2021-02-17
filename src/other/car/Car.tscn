@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/resources/nokiaTheme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/art/sprites/nokiaCar.png" type="Texture" id=2]
+[ext_resource path="res://src/other/car/Car.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 10 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 16.0
+
+[node name="Car" type="StaticBody2D"]
+position = Vector2( -102, 12 )
+scale = Vector2( 0.996436, 1 )
+collision_mask = 31
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="FuelRadius" type="Area2D" parent="."]
+position = Vector2( 0, -4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FuelRadius"]
+position = Vector2( 0, 4 )
+shape = SubResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -50.1788
+margin_top = 12.0
+margin_right = 53.8212
+margin_bottom = 57.0
+theme = ExtResource( 1 )
+text = "Collect enough fuel and get back to car"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="body_entered" from="FuelRadius" to="." method="_on_FuelRadius_body_entered"]
+[connection signal="body_exited" from="FuelRadius" to="." method="_on_FuelRadius_body_exited"]
